@@ -1,0 +1,16 @@
+{
+	"name": "odi-framework",
+	"version": "1.0.0",
+	"main": "src/index.ts",
+	"license": "MIT",
+	"scripts": {
+		"start": "nodemon --exec ts-node src/index.ts"
+	},
+	"dependencies": {
+		"odi": "^0.2.12",
+		"pg": "^7.7.1",
+		"reflect-metadata": "^0.1.12",
+		"typeorm": "^0.2.9"
+	},
+	"devDependencies": {}
+}
