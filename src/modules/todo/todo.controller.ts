@@ -22,20 +22,19 @@ export class TodoDTO {
 @Controller("/todos")
 export default class TodoController extends BaseController {
 	@Autowired()
-	todoServ: TodoService;
+	todoService: TodoService;
 
 	@Get
 	async index() {
-		const todos = await this.todoServ.getTodos();
-		const text = this.something();
-		console.log(text);
-		return { todos };
+		const todos = await this.todoService.getTodos();
+		const text = this.getSomeText();
+		return { todos, text };
 	}
 
 	@RouteGet("/{id}")
 	async show(id: string) {
 		try {
-			const todo = await this.todoServ.findTodo(id);
+			const todo = await this.todoService.findTodo(id);
 			if (!todo) return NotFound("todo not found");
 			return { todo };
 		} catch (error) {
@@ -46,7 +45,7 @@ export default class TodoController extends BaseController {
 	@RoutePost("/")
 	async addTodo(data: TodoDTO) {
 		try {
-			const todo = await this.todoServ.createTodo(data);
+			const todo = await this.todoService.createTodo(data);
 			return { todo };
 		} catch (error) {
 			return BadRequest(error);
@@ -57,7 +56,7 @@ export default class TodoController extends BaseController {
 	async updateTodo(data: TodoDTO) {
 		const id = this.getParam("id");
 		try {
-			const todo = await this.todoServ.updateTodo(id, data);
+			const todo = await this.todoService.updateTodo(id, data);
 			return { todo };
 		} catch (error) {
 			return BadRequest(error);

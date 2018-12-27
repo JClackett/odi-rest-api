@@ -3,7 +3,7 @@ import { logUrl } from "../../lib/middleware/logger";
 
 @Middleware(logUrl)
 export class BaseController extends IController {
-	public something() {
-		return "yooooo";
+	public getSomeText() {
+		return "Hello from the base controller";
 	}
 }
