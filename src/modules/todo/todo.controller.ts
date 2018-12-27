@@ -27,6 +27,8 @@ export default class TodoController extends BaseController {
 	@Get
 	async index() {
 		const todos = await this.todoServ.getTodos();
+		const text = this.something();
+		console.log(text);
 		return { todos };
 	}
 
