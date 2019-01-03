@@ -27,8 +27,7 @@ export default class TodoController extends BaseController {
 	@Get
 	async index() {
 		const todos = await this.todoService.getTodos();
-		const text = this.getSomeText();
-		return { todos, text };
+		return { todos };
 	}
 
 	@RouteGet("/{id}")
