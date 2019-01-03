@@ -11,7 +11,7 @@ import {
 	RoutePatch,
 } from "odi";
 import { TodoService } from "./todo.service";
-import { BaseController } from "../shared/baseController";
+import { BaseController } from "../shared/base.controller";
 
 @Data()
 export class TodoDTO {

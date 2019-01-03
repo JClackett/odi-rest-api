@@ -1,6 +1,6 @@
 import { Controller, Get } from "odi";
 
-import { BaseController } from "../shared/baseController";
+import { BaseController } from "../shared/base.controller";
 
 @Controller()
 export default class HomeController extends BaseController {
